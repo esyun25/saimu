@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新しい一歩へ - 債務整理サポートサービス</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #4a6da7;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        
+        .hero {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-image: url('/api/placeholder/600/200');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+        }
+        
+        .hero:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        
+        .hero h2 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            margin: 10px 0;
+            box-shadow: 0 3px 10px rgba(230,126,34,0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #d35400;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section h2 {
+            color: #4a6da7;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefit-list li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .steps li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background-color: #4a6da7;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .phone {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a6da7;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .testimonials {
+            max-height: 350px;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        
+        .testimonial {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial .name {
+            text-align: right;
+            font-weight: bold;
+            color: #4a6da7;
+        }
+        
+        footer {
+            background-color: #4a6da7;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        
+        .privacy-policy {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        
+        .privacy-policy a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .faq-answer {
+            color: #666;
+        }
+        
+        .embed-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .free-consult {
+            background-color: #ebf7f3;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .free-consult h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        .emergency {
+            background-color: #fdf3f2;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .emergency h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .type-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .type-box {
+            width: 100%;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .type-box img {
+            display: block;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+        }
+        
+        .type-box h3 {
+            text-align: center;
+            color: #4a6da7;
+            margin-bottom: 10px;
+        }
+        
+        .type-box p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>新しい一歩へ</h1>
+            <p class="subtitle">債務整理サポートサービス</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h2>借金問題、一人で悩まないでください</h2>
+                <p>多重債務でお悩みのあなたへ。<br>当事務所の債務整理サポートで、新しい生活を始めませんか？</p>
+                <a href="#application" class="cta-button">無料相談を申し込む</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>債務整理で得られるメリット</h2>
+            <ul class="benefit-list">
+                <li>借金の総額が大幅に減額される可能性があります</li>
+                <li>返済計画が立てやすくなり、毎月の負担が軽減されます</li>
+                <li>取り立てや催促の電話がストップします</li>
+                <li>法的な保護のもとで安心して返済に専念できます</li>
+                <li>将来的な資産形成への第一歩を踏み出せます</li>
+            </ul>
+            
+            <div class="emergency">
+                <h3>緊急の場合</h3>
+                <p>取り立てが厳しい、生活費が足りないなど緊急の場合はすぐにご連絡ください。最短即日対応いたします。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>債務整理の種類</h2>
+            <div class="type-section">
+                <div class="type-box">
+                    <img src="/api/placeholder/60/60" alt="任意整理のアイコン">
+                    <h3>任意整理</h3>
+                    <p>債権者と交渉して、金利の引き下げや元金の分割払いなどを行います。比較的手続きが簡単で、マイホームなどの財産を残すことができます。</p>
+                </div>
+                
+                <div class="type-box">
+                    <img src="/api/placeholder/60/60" alt="個人再生のアイコン">
+                    <h3>個人再生</h3>
+                    <p>裁判所を通じて債務を最大で5分の1まで減額できる可能性があります。住宅ローンがある場合でも、マイホームを残しながら債務整理ができます。</p>
+                </div>
+                
+                <div class="type-box">
+                    <img src="/api/placeholder/60/60" alt="自己破産のアイコン">
+                    <h3>自己破産</h3>
+                    <p>借金を完全に免除してもらう手続きです。一定の財産は処分する必要がありますが、生活に必要な最低限の財産は残すことができます。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>当事務所の債務整理サポート</h2>
+            <p>当事務所では、お客様一人ひとりの状況に合わせた最適な債務整理プランをご提案します。</p>
+            
+            <div class="free-consult">
+                <h3>初回相談無料</h3>
+                <p>初回のご相談は完全無料です。お気軽にご相談ください。</p>
+            </div>
+            
+            <ul class="steps">
+                <li><strong>無料相談お申し込み</strong>：このページの申し込みフォームから簡単に予約できます。</li>
+                <li><strong>ヒアリング</strong>：お客様の状況や債務の状況を丁寧にお伺いします。</li>
+                <li><strong>最適なプランのご提案</strong>：お客様に最も適した債務整理の方法をご提案します。</li>
+                <li><strong>手続きのサポート</strong>：必要書類の準備から債権者との交渉、裁判所への申立てまで、すべてサポートします。</li>
+                <li><strong>アフターフォロー</strong>：債務整理後の生活再建や家計管理のアドバイスも行います。</li>
+            </ul>
+            <img src="/api/placeholder/550/200" alt="サポートイメージ" style="width: 100%; border-radius: 10px; margin-top: 20px;">
+        </div>
+        
+        <div class="section">
+            <h2>お客様の声</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>何社ものカードローンを抱え、返済が苦しくなっていました。相談してみると、任意整理で毎月の返済額を大幅に減らすことができ、生活にゆとりが生まれました。</p>
+                    <p class="name">40代 男性</p>
+                </div>
+                <div class="testimonial">
+                    <p>自己破産に対して偏見がありましたが、相談してみると私の状況では最も適切な選択だと分かりました。今は新しい生活を送れています。</p>
+                    <p class="name">30代 女性</p>
+                </div>
+                <div class="testimonial">
+                    <p>個人再生で住宅を残しながら債務を整理できました。家族の住む場所を失わずに済み、本当に感謝しています。</p>
+                    <p class="name">50代 男性</p>
+                </div>
+                <div class="testimonial">
+                    <p>毎月の支払いに追われ、夜も眠れない日々が続いていました。債務整理の相談をしたことで、具体的な返済計画が立ち、精神的にも楽になりました。</p>
+                    <p class="name">30代 女性</p>
+                </div>
+                <div class="testimonial">
+                    <p>複数の消費者金融からの借入れがあり、利息だけで精一杯でした。任意整理で元金のみの返済に切り替えることができ、返済の目処が立ちました。</p>
+                    <p class="name">40代 男性</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>よくある質問</h2>
+            <div class="faq-item">
+                <p class="faq-question">債務整理をすると、ブラックリストに載りますか？</p>
+                <p class="faq-answer">債務整理を行うと、信用情報機関に情報が登録されるため、一定期間（5〜10年程度）は新たな借入れが難しくなります。ただし、これは「ブラックリスト」ではなく、法的な手続きとして記録されるものです。</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">債務整理の費用はどれくらいかかりますか？</p>
+                <p class="faq-answer">費用は債務整理の種類や債権者の数などによって異なります。当事務所では分割払いにも対応しており、初回相談は無料です。具体的な費用は、ご相談時にご説明いたします。</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">債務整理中でも生活できますか？</p>
+                <p class="faq-answer">はい、債務整理中でも通常の生活を送ることができます。むしろ、返済負担が軽減されることで、生活にゆとりが生まれることが多いです。</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question">会社や家族に知られずに債務整理できますか？</p>
+                <p class="faq-answer">任意整理の場合は、基本的に会社に知られることはありません。自己破産や個人再生でも、通常は勤務先に通知されることはありませんが、職業制限がある場合もあります。詳しくはご相談ください。</p>
+            </div>
+        </div>
+        
+        <div id="application" class="section">
+            <h2>無料相談申し込み</h2>
+            <p>以下のフォームから、無料相談のお申し込みができます。<br>24時間受付中、専門スタッフが丁寧にご対応いたします。</p>
+            
+            <div class="embed-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdMk6P_IJQUZj7eB7KIrseK39ElfV2MVmNnLuAOYFp4xE7QAA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            </div>
+            
+            <div class="contact-info">
+                <p>お電話でのご相談も受け付けております</p>
+                <a href="tel:0120-XXX-XXX" class="phone">0120-XXX-XXX</a>
+                <p>受付時間：平日 9:00〜20:00 / 土日祝 10:00〜18:00</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>新しい一歩へ - 債務整理サポートサービス</p>
+            <p>〒XXX-XXXX 東京都〇〇区〇〇X-X-X</p>
+            <div class="privacy-policy">
+                <a href="#">プライバシーポリシー</a> | <a href="#">特定商取引法に基づく表記</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
